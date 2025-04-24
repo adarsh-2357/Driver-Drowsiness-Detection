@@ -1,68 +1,40 @@
 # Driver Drowsiness Detection
 
-This project uses deep learning and computer vision techniques to detect driver drowsiness based on eye images. A pretrained InceptionV3 model is fine-tuned on the MRL Eye Dataset to classify whether the driver is drowsy or alert.
+## 🚗 Project Overview
+
+This project uses computer vision and machine learning to detect driver drowsiness in real-time using a webcam. It leverages a pre-trained deep learning model (InceptionV3) to classify whether the driver's eyes are open or closed, triggering an alarm if the eyes remain closed for a specific duration.
+
+### 📸 Features:
+- Real-time webcam face detection
+- Eye state classification (open/closed) using a deep learning model
+- Alarm system that sounds when the driver is detected to be drowsy
+- Automated phone call alert via Twilio API if drowsiness is detected for an extended period
 
 ---
 
-## 🧠 Model
-- **Base Model:** InceptionV3 (pretrained on ImageNet)
-- **Custom Layers:** Flatten → Dense → Dropout → Dense (Softmax)
-- **Output:** 2 Classes – Drowsy, Alert
+## 🧠 Model Information
+
+The eye detection model is based on a custom-trained neural network using the **InceptionV3** architecture, fine-tuned on the [MRL Eye Dataset](https://www.kaggle.com/datasets). The model was trained using **Keras/TensorFlow** and is capable of recognizing eye states (open or closed) to monitor the driver's alertness.
+
+Due to GitHub's file size limitations, the trained model file (`best_model.h5`) is not included in the repository.
 
 ---
 
-## 📁 Dataset
-- **MRL Eye Dataset**
-- Used for training, validation, and testing
-- Loaded using `ImageDataGenerator` from Keras
+## 🔗 Download the Model
+
+To run this project, you need the trained model file (`best_model.h5`). You can download it from Google Drive:
+
+📥 [Download the trained model here](https://drive.google.com/file/d/1mPbdeVGKRlMhYuArUsoCv2q2hLELuSpp/view?usp=sharing)
+
+After downloading, place the model file in the `Models/` folder of this repository.
 
 ---
 
-## 🔧 How to Train
+## 📦 Requirements
 
-> Model training was performed on [Kaggle](https://www.kaggle.com) with the following:
-- TensorFlow 2.13.0
-- Keras 2.13.1
-- ImageDataGenerator for augmentation
-- EarlyStopping, ReduceLROnPlateau, and ModelCheckpoint callbacks
+To run the project, you need to install the required dependencies:
 
----
-
-## 💾 Model Saving
-
-The best model is saved as:
-- `best_model.h5` (HDF5 format)
-- `best_model/` (TensorFlow SavedModel format)
-
----
-
-## 📈 Results
-
-- **Training Accuracy:** _(Insert after running the evaluation)_
-- **Validation Accuracy:** _(Insert here)_
-- **Test Accuracy:** _(Insert here)_
-
----
-
-## 🚀 Future Improvements
-
-- Integrate the model with a webcam to detect drowsiness in real-time
-- Deploy on edge devices (like Raspberry Pi or Jetson Nano)
-- Add sound alerts when drowsiness is detected
-
----
-
-## 📌 Note
-
-> This was a learning project created using Kaggle Notebooks and OpenCV-based dataset preprocessing. It helped reinforce concepts in transfer learning, image augmentation, and model evaluation.
-
----
-
-## 📚 Acknowledgements
-
-- MRL Eye Dataset: [MRL Dataset Paper / Source]([https://](https://universe.roboflow.com/mrl-eye-dataset-rwrm0))
-- Kaggle: For GPU support and training environment
-
----
-
-Feel free to contribute or raise issues if you'd like to expand the project!
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/driver-drowsiness-detection.git
+   cd driver-drowsiness-detection
